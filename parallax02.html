@@ -10,14 +10,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
 
     <!-- style -->
-    <link rel="stylesheet" href="style01.css">
+    <link rel="stylesheet" href="style02.css">
 
 </head>
 <body>
     <nav id="nav">
         <h1><a href="#section1">WEB'S</a></h1>
         <ul>
-            <li><a href="#section1">menu1</a></li>
+            <li class="active"><a href="#section1">menu1</a></li>
             <li><a href="#section2">menu2</a></li>
             <li><a href="#section3">menu3</a></li>
             <li><a href="#section4">menu4</a></li>
@@ -41,6 +41,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script>
+
+/* Basic
         var nav = $("#nav ul li");              //버튼을 변수에 할당(저장)
         var cont = $("#contents > div");        //컨텐츠를 변수에 할당
                     //$("#contents > div").eq(0);
@@ -58,6 +60,54 @@
             //alert(offset);
             $("html, body").animate({ scrollTop:offset },600,"easeInOutExpo");
         });
+*/
+
+        /* Menu */
+        var nav = $("#nav ul li");
+        var cont = $("#contents > div")
+
+        nav.click(function(e){
+            e.preventDefault();
+            var target = $(this);
+            var index = target.index();
+            //alert(index);
+
+            var section = cont.eq(index);
+            var offset = section.offset().top;
+            //alert(offset);
+            $("html, body").animate({ scrollTop:offset },600,"easeInOutExpo");
+        });
+        
+        $(window).scroll(function(){
+            var wScroll = $(this).scrollTop();
+
+            if(wScroll >= cont.eq(0).offset().top){
+                nav.removeClass("active");
+                nav.eq(0).addClass("active");
+            }
+            if(wScroll >= cont.eq(1).offset().top){
+                nav.removeClass("active");
+                nav.eq(1).addClass("active");
+            }
+            if(wScroll >= cont.eq(2).offset().top){
+                nav.removeClass("active");
+                nav.eq(2).addClass("active");
+            }
+            if(wScroll >= cont.eq(3).offset().top){
+                nav.removeClass("active");
+                nav.eq(3).addClass("active");
+            }
+            if(wScroll >= cont.eq(4).offset().top){
+                nav.removeClass("active");
+                nav.eq(4).addClass("active");
+            }
+            if(wScroll >= cont.eq(5).offset().top){
+                nav.removeClass("active");
+                nav.eq(5).addClass("active");
+            }
+        });
+
+
     </script>
 
 
