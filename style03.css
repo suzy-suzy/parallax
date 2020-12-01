@@ -47,7 +47,7 @@ a {text-decoration: none;}
     #nav .menu li {width: 100%; display: inline-block;}
     #nav .menu li.active {background: rgba(255,255,255,0.4);}
 
-    #contents > div h2 {font-size: 6vw;}
+    #contents > div h2 {font-size: 6vw; font-weight: 300;}
 
 }
 
