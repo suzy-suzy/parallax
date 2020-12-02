@@ -10,12 +10,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
 
     <!-- style -->
-    <link rel="stylesheet" href="style02.css">
+    <link rel="stylesheet" href="style04.css">
 
 </head>
 <body>
-    <nav id="nav">
-        <h1><a href="#section1">WEB'S</a></h1>
+
+    <nav id="side-nav">
+        <h1><a href="#section1">SUZYSUZY</a></h1>
         <ul>
             <li class="active"><a href="#section1">menu1</a></li>
             <li><a href="#section2">menu2</a></li>
@@ -24,16 +25,17 @@
             <li><a href="#section5">menu5</a></li>
             <li><a href="#section6">menu6</a></li>
         </ul>
+        <a href="#" class="navBtn">Open</a>
     </nav>
     <!-- //nav -->
     
     <div id="contents">
-        <div id="section1"><h2>Time is <strong>gold</strong></h2></div>
-        <div id="section2"><h2>Seeing is <strong>believing</strong></h2></div>
-        <div id="section3"><h2>Asking costs <strong>nothing</strong></h2></div>
-        <div id="section4"><h2><strong>Better</strong> is to bow than break</h2></div>
-        <div id="section5"><h2><strong>Habit</strong> is second nature</h2></div>
-        <div id="section6"><h2>Pain past is <strong>pleasure</strong></h2></div>
+        <div id="section1"><h2>시간은 <strong>금이다.</strong></h2></div>
+        <div id="section2"><h2>피할 수 없으면 <strong>즐겨라!</strong></h2></div>
+        <div id="section3"><h2>삶이 있는 한 <strong>희망</strong>은 있다.</h2></div>
+        <div id="section4"><h2>먼저핀 꽃은 <strong>먼저진다.</strong></h2></div>
+        <div id="section5"><h2>내일은 내일의 <strong>태양이 뜬다.</strong></h2></div>
+        <div id="section6"><h2>모든 인생은 <strong>실험이다.</strong></h2></div>
     </div>
     <!-- //contents -->
 
@@ -41,8 +43,24 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script>
+        
+        //open버튼을 클릭하면 사이드바를 0으로
+        $(".navBtn").click(function(){
+            //$("#side-nav").css("left", "0");
+            //$("#side-nav").addClass("open");
+            //$("#side-nav").animate({"left":"0"},300);
+            $("#side-nav").toggleClass("on");
 
-        var nav = $("#nav ul li");
+            if( $("#side-nav").hasClass("on") ){
+                $("#side-nav").animate({"left":"0"},300);
+                $(".navBtn").text("Close");
+            } else {
+                $("#side-nav").animate({"left":"-300"},300);
+                $(".navBtn").text("Open");
+            }
+        });
+
+        var nav = $("#side-nav ul li")
         var cont = $("#contents > div")
 
         nav.click(function(e){
@@ -50,13 +68,11 @@
             var target = $(this);
             var index = target.index();
             //alert(index);
-
             var section = cont.eq(index);
             var offset = section.offset().top;
-            //alert(offset);
-            $("html, body").animate({ scrollTop:offset },600,"easeInOutExpo");
+            $("html, body").animate({ scrollTop:offset},600,"easeInOutExpo");
         });
-        
+
         $(window).scroll(function(){
             var wScroll = $(this).scrollTop();
 
@@ -85,7 +101,6 @@
                 nav.eq(5).addClass("active");
             }
         });
-
 
     </script>
 
