@@ -5,4 +5,6 @@
 <a href="https://suzy-suzy.github.io/parallax/parallax03.html">parallax03.html</a><br>
 <a href="https://suzy-suzy.github.io/parallax/parallax04.html">parallax04.html</a><br>
 <a href="https://suzy-suzy.github.io/parallax/parallax05.html">parallax05.html</a><br>
+<a href="https://suzy-suzy.github.io/parallax/parallax06.html">parallax06.html</a><br>
+<a href="https://suzy-suzy.github.io/parallax/parallax07.html">parallax07.html</a><br>
 
