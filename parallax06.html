@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
 
     <!-- style -->
-    <link rel="stylesheet" href="style05.css">
+    <link rel="stylesheet" href="style06.css">
 
 </head>
 <body>
@@ -42,21 +42,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script>
-        $("#nav").each(function(){
-            var header = $(this);
-            var headerOffset = header.offset().top;
-            //alert(headerOffset);
-
-            $(window).scroll(function(){
-                var wScroll = $(this).scrollTop();
-                if(wScroll > headerOffset){
-                    header.addClass("on");
-                } else {
-                    header.removeClass("on");
-                }
-            });
-        });
-
         var nav = $("#nav ul li");
         var cont = $("#contents > div");
 
@@ -66,11 +51,17 @@
             var index = target.index();
             var section = cont.eq(index);
             var offset = section.offset().top;
-            $("html, body").animate({ scrollTop:offset}, 600, "easeInOutExpo");
+            $("html, body").animate({ scrollTop:offset }, 600, "easeInOutExpo");
         });
 
         $(window).scroll(function(){
             var wScroll = $(this).scrollTop();
+
+            if(wScroll > 200){
+                $("#nav").addClass("on");
+            } else if(wScroll == 0){
+                $("#nav").removeClass("on");
+            }
 
             if(wScroll >= cont.eq(0).offset().top){
                 nav.removeClass("active");
@@ -97,7 +88,6 @@
                 nav.eq(5).addClass("active");
             }
         });
-
     </script>
 
 
