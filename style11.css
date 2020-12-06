@@ -1,0 +1,66 @@
+/* reset */
+* {margin: 0; padding: 0; font-family: 'Lato';}
+li {list-style: none;}
+a {text-decoration: none;}
+
+/* nav */
+#nav {position: fixed; left: 0; top: 0; width: 100%; height: 60px; z-index: 1000; background: rgba(255,255,255,0.3); transition: all 0.3s ease;}
+#nav.on {position: fixed; top: -60px;}
+#nav h1 {float: left; color: #fff; font-size: 40px; padding: 5px 5px 5px 15px; font-family: 'Abel';}
+
+/* dot */
+#dot {position: fixed; right: 20px; top:50%; z-index: 10; transform: translatey(-50%);}
+#dot li {
+    position: relative;
+    width: 12px; height: 12px; border-radius:50%; 
+    box-shadow: 0 0 0 2px rgba(255,255,255,0);
+    margin: 10px;
+    transition: box-shadow 0.3s ease;
+}
+#dot li a { 
+    background-color: rgba(255,255,255,0.7);
+    width: 100%; height: 100%;
+    position: absolute; top:0; left: 0;
+    border-radius: 50%;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+#dot li.active {box-shadow: 0 0 0 2px rgba(255,255,255,1);}
+#dot li.active a {transform: scale(0.4);}
+#dot li a em {display: none;}
+
+/* contents */
+#contents {text-align: center; color: #fff;}
+#contents > div {height: 100vh; line-height: 100vh;}
+#contents > div h2 {font-size: 90px; font-weight: 100; text-transform: uppercase;}
+#contents > div h2 strong {font-weight: 700; font-style: italic;}
+
+/* section */
+#section1 {background: radial-gradient(ellipse farthest-corner at center bottom, #90dfff, #8a9bff);}
+#section2 {background: radial-gradient(ellipse farthest-corner at center bottom, #ffc3f0, #ff7cbd);}
+#section3 {background: radial-gradient(ellipse farthest-corner at center bottom, #ffee75, #ff8930);}
+#section4 {background: radial-gradient(ellipse farthest-corner at center bottom, #fd848e, #d8455d);}
+#section5 {background: radial-gradient(ellipse farthest-corner at center bottom, #c37af3, #8c22ac);}
+#section6 {background: radial-gradient(ellipse farthest-corner at center bottom, #9de7a9, #2ec55b);}
+
+/* text animation */
+#contents > div h2 {transition: all 0.6s ease-in-out;}
+#section1 h2 {opacity: 0; transform: translate(0,0);}
+#section2 h2 {opacity: 0; transform: translate(0,-20%);}
+#section3 h2 {opacity: 0; transform: translate(-20%,0);}
+#section4 h2 {opacity: 0; transform: translate(10%,0);}
+#section5 h2 {opacity: 0; transform: rotate(45deg);}
+#section6 h2 {opacity: 0; transform: skew(90deg);}
+#contents > div.show h2 {transform: none;}
+#section1.show h2 {opacity: 1;}
+#section2.show h2 {opacity: 1;}
+#section3.show h2 {opacity: 1;}
+#section4.show h2 {opacity: 1;}
+#section5.show h2 {opacity: 1;}
+#section6.show h2 {opacity: 1;}
+
+/* mediaquery */
+@media (max-width: 1080px){
+    #contents > div h2 {font-size: 6vw;}
+}
+
+
